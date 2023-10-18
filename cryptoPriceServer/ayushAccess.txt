@@ -1,0 +1,41 @@
+db access
+http://52.76.205.191/phpmyadmin
+cryptoprices
+2YMA36NPjJACwgFf
+
+nodejs webserver ssh (sudo access)
+sudo ssh -i ayush_id_rsa.pem ayush@54.169.113.98
+yd#Cq^E*xmZv
+
+file root directory 
+/home/ubuntu/cryptoServer
+
+ssl keys are stored in 
+/etc/letsencrypt/live/alpha.flagforex.com
+
+nginx file 
+/etc/nginx/sites-available/cryptoPrice
+
+command to run in production env
+NODE_ENV=production pm2 start server.js --cron "6 */8 * * *" --name crypto_prices
+
+config.json
+
+{
+	"development": {
+		"dbHost": "localhost",
+		"dbUser": "INSERTHERE",
+		"dbPass": "INSERTHERE",
+		"database": "price_server",
+		"jwtToken": "secret-key",
+		"logLevel": "info"
+	},
+	"production": {
+		"dbHost": "dev.flagforex.com",
+		"dbUser": "cryptoprices",
+		"dbPass": "2YMA36NPjJACwgFf",
+		"database": "price_server",
+		"jwtToken": "flagforex-19Oct18",
+		"logLevel": "info"
+	}
+}
